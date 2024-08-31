@@ -29,7 +29,7 @@ class EventRegistrationController extends Controller
 
     public function store(StoreEventRegistrationRequest $request, Event $event)
     {
-        $this->eventRegistrationService->create($event->id, $request->validated(), $event->is_auto_confirm);
+        $this->eventRegistrationService->create($event->id, $request->validated(), true);
 
         return redirect()->back();
     }
