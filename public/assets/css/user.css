@@ -24,14 +24,14 @@
 }
 
 .postadd {
-    background-color: #FEF400; /* Желтый цвет фона */
+    background-color: #5F00A7; /* Желтый цвет фона */
     color: #000000; /* Черный цвет текста */
     /* Внутренние отступы для кнопки */
     border-radius: 5px; /* Закругленные углы */
     font-size: 16px; /* Размер шрифта */
     font-weight: bold; /* Жирный шрифт */
     text-align: center; /* Выравнивание текста по центру */
-    border: 1px solid #FEF400; /* Граница с тем же цветом, что и фон */
+    border: 1px solid #5F00A7; /* Граница с тем же цветом, что и фон */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Легкая тень */
     cursor: pointer; /* Курсор в виде руки при наведении */
     margin-left: 20px;
@@ -45,14 +45,14 @@
 }
 
 .postadd:hover {
-    background-color: #FEF400; /* Желтый цвет фона */
+    background-color: #5F00A7; /* Желтый цвет фона */
     color: #000000; /* Черный цвет текста */
     /* Внутренние отступы для кнопки */
     border-radius: 5px; /* Закругленные углы */
     font-size: 16px; /* Размер шрифта */
     font-weight: bold; /* Жирный шрифт */
     text-align: center; /* Выравнивание текста по центру */
-    border: 1px solid #FEF400; /* Граница с тем же цветом, что и фон */
+    border: 1px solid #5F00A7; /* Граница с тем же цветом, что и фон */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Легкая тень */
     cursor: pointer; /* Курсор в виде руки при наведении */
     margin-left: 20px;
