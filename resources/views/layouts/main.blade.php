@@ -9,7 +9,7 @@
     <!-- ===============================================--><!--    Document Title-->
     <!-- ===============================================-->
     <title>@section('title')
-            Salom | Сервис по поиску впечатлений
+            anons.tj — афиша событий и мероприятий в Душанбе
         @show</title>
 
     <!-- ===============================================--><!--    Favicons-->
@@ -88,12 +88,13 @@
 <body>
 <!-- ===============================================--><!--    Main Content-->
 <!-- ===============================================-->
-<main class="main @yield('main-class')" id="top">
+<main  class="main @yield('main-class') " id="top">
 
     @include('layouts.partials.header')
 
+    <div style="width: 70%" class="align-content-center mx-auto">
     @yield('content')
-
+    </div>
     @include('layouts.partials.footer')
 
 </main>

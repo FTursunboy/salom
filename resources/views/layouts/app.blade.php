@@ -5,7 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Salom | Сервис по поиску впечатлений</title>
+        <title>anons.tj — афиша событий и мероприятий в Душанбе</title>
+        <meta name="description" content="Афиша Душанбе: расписание событий, концертов, кино, фестивалей и других мероприятий. Узнайте, куда сходить в Душанбе на anons.tj и выберите лучшее развлечение по вашему вкусу.">
+        <meta name="title" content="Афиша Душанбе — куда сходить: концерты, кино, фестивали, мероприятия — anons.tj">
+
+        <!-- Мета-ключевые слова -->
+        <meta name="keywords" content="афиша Душанбе, куда сходить в Душанбе, расписание концертов, киноафиша Душанбе, мероприятия Душанбе, события в Душанбе, афиша событий Душанбе">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -15,7 +20,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+        <div  class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 
             <!-- Page Heading -->

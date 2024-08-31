@@ -34,6 +34,7 @@ class UserEloquentRepository implements UserRepositoryContract
     public function update(string $userId, array $data): User
     {
         $user = $this->user::find($userId);
+
         $user->update($data);
 
         return $user;

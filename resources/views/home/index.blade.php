@@ -5,9 +5,7 @@
 @section('content')
     <div class="container">
         <div class="col-12">
-            <a href="https://salom.io/events/Knvgez">
-                <img src="{{ asset('assets/img/banner/fingram.png') }}" alt="" class="w-100">
-            </a>
+
         </div>
         <div class="col-12">
             <nav class="focus-cat-list" id="calendar-widget">

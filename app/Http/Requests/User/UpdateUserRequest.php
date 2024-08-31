@@ -14,6 +14,7 @@ class UpdateUserRequest extends FormRequest
             'middle_name' => ['nullable'],
             'email' => ['nullable', 'email', 'max:254'],
             'birth_date' => ['nullable'],
+            'telegram' => ['nullable'],
             'gender' => ['nullable'],
             'description' => ['nullable'],
         ];

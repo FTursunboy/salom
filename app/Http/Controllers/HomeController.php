@@ -52,11 +52,6 @@ class HomeController extends Controller
                     ->orWhere('end_date', '<=', Carbon::now()
                         ->addDays($countDaysEvents)->toDateString());
             })
-            ->where(function ($query) use ($currentCityId) {
-                if ($currentCityId) {
-                    $query->where('city_id', $currentCityId);
-                }
-            })
             ->where('is_active', '=', true)
             ->where('event_status_id', '=', EventStatusHelper::Confirmed->value)
             ->distinct()->get();
@@ -79,11 +74,7 @@ class HomeController extends Controller
             ->where('is_active', '=', true)
             ->where('event_status_id', '=', EventStatusHelper::Confirmed)
             ->whereIn('id', $eventSchedules->pluck('event_id'))
-            ->where(function ($query) use ($currentCityId) {
-                if ($currentCityId) {
-                    $query->where('city_id', $currentCityId);
-                }
-            })
+
             ->orderByDesc('events.created_at')
             ->get();
 

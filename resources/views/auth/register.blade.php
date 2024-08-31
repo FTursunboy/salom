@@ -14,19 +14,8 @@
         <form method="POST" action="{{ route('register') }}" id="form-register" onsubmit="return formSubmit()">
             @csrf
             <div class="row mb-3 mt-3">
-                <div class="col-6">
-                    <button type="button" class="btn @if(old('account_type') != 'organizer') btn-primary @endif account-type col-12"
-                            id="account_type_participant" data-account-type="participant">
-                        {{ trans('auth.account_type.participant') }}
-                    </button>
-                </div>
-                <div class="col-6">
-                    <button type="button" class="btn account-type @if(old('account_type') == 'organizer') btn-primary @endif col-12"
-                            id="account_type_organizer" data-account-type="organizer">
-                        {{ trans('auth.account_type.organizer') }}
-                    </button>
-                </div>
-                <input type="hidden" name="account_type" value="{{ old('account_type', 'participant') }}" id="account_type">
+
+                <input type="hidden" name="account_type" value="organizer" id="account_type">
             </div>
             <div class="mb-3">
                 <x-input-label for="first_name" :value="trans('auth.first_name')"/>

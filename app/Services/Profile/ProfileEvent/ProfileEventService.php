@@ -24,12 +24,9 @@ class ProfileEventService implements ProfileEventContract
 
     public function create(array $data)
     {
-        $country = $this->countryRepository->findOrNew($data['country']);
-        $city = $this->cityRepository->findOrNew($country->id, $data['city']);
 
         $data = array_merge($data, [
-            'country_id' => $country->id,
-            'city_id' => $city->id,
+            'address' => 'RUMON',
             'show_ticket_count' => ($data['show_ticket_count'] ?? null == 'on')
         ]);
 

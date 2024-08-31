@@ -69,6 +69,10 @@
                                     'data-options' => '{&quot;dateFormat&quot;:&quot;Y-m-d&quot;,&quot;enableTime&quot;:false}']) }}
                             </div>
                             <div class="col-lg-6">
+                                <label class="form-label" for="email2">Телеграм</label>
+                                {{ Form::text('telegram', null, ['class' => 'form-control']) }}
+                            </div>
+                            <div class="col-lg-6">
                                 <label class="form-label" for="email2">Пол</label>
                                 {{ Form::select('gender', trans('common.gender'), null, ['class' => 'form-control', 'id' => 'phone']) }}
                             </div>
@@ -76,6 +80,7 @@
                                 <label class="form-label" for="intro">О себе</label>
                                 {{ Form::textarea('description', null, ['class' => 'form-control', 'rows' => '6', 'placeholder' => '']) }}
                             </div>
+
                             <div class="col-12 d-flex justify-content-end">
                                 {{ Form::submit('Сохранить', ['class' => 'btn btn-primary']) }}
                             </div>

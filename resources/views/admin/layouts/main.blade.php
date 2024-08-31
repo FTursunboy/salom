@@ -9,7 +9,7 @@
     <!-- ===============================================--><!--    Document Title-->
     <!-- ===============================================-->
     <title>@section('title')
-            Salom | Сервис по поиску впечатлений
+            anons | Сервис по поиску впечатлений
         @show</title>
 
     <!-- ===============================================--><!--    Favicons-->
@@ -88,7 +88,7 @@
                 </div>
                 <a class="navbar-brand" href="{{ route('home') }}">
                     <div class="d-flex align-items-center py-3">
-                        salom
+                        anons
                     </div>
                 </a>
             </div>
@@ -157,7 +157,7 @@
             </button>
             <a class="navbar-brand me-1 me-sm-3" href="{{ route('home') }}">
                 <div class="d-flex align-items-center">
-                    salom
+                    anons
                 </div>
             </a>
         </nav>
@@ -222,7 +222,7 @@
                         <p class="mb-0 text-600">Все права защищены
                             <span class="d-none d-sm-inline-block">| </span>
                             <br class="d-sm-none"/> {{ \Carbon\Carbon::now()->year }} &copy;
-                            <a href="{{ route('home') }}">salom</a>
+                            <a href="{{ route('home') }}">anons</a>
                         </p>
                     </div>
                     <div class="col-12 col-sm-auto text-center">

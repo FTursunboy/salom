@@ -128,7 +128,7 @@
 
     $('#add_event_schedule').on('click', function () {
         const container = document.getElementById("event_schedules");
-        const template = document.getElementById("event_schedule_template");
+        const template = document.getElementаById("event_schedule_template");
         const firstClone = template.content.cloneNode(true);
 
         let elements = document.getElementsByClassName('event-schedule-btn');
@@ -257,7 +257,7 @@
                 console.log('\nГосударство: %s', firstGeoObject.getCountry());
                 console.log('Населенный пункт: %s', firstGeoObject.getLocalities().join(', '));
                 console.log('Адрес объекта: %s', firstGeoObject.getAddressLine());
-                console.log('Наименование здания: %s', firstGeoObject.getPremise() || '-');
+                console.log('Наимен ование здания: %s', firstGeoObject.getPremise() || '-');
                 console.log('Номер здания: %s', firstGeoObject.getPremiseNumber() || '-');
 
                 myPlacemark.properties

@@ -8,15 +8,13 @@ class StoreEventRequest extends FormRequest
 {
     public function rules(): array
     {
+
         return [
             'event_category_id' => ['required'],
             'title' => ['required'],
             'description' => ['required'],
             'text' => ['required'],
             'photo' => ['required'],
-            'address' => ['required'],
-            'latitude' => ['required'],
-            'longitude' => ['required'],
             'ticket_amount' => ['nullable', 'integer'],
             'ticket_count' => ['nullable', 'integer'],
             'show_ticket_count' => ['nullable'],
@@ -28,8 +26,6 @@ class StoreEventRequest extends FormRequest
             'event_schedules.*.start_time' => ['string', 'required'],
             'event_schedules.*.end_date' => ['string', 'required'],
             'event_schedules.*.end_time' => ['string', 'required'],
-            'city' => ['required'],
-            'country' => ['required'],
             'phones' => ['array'],
             'sites' => ['array'],
             'organizer' => ['string', 'nullable'],

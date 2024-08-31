@@ -1,5 +1,6 @@
 <div class="row g-0">
-    <div class="col-lg-8 pe-lg-2 mb-3">
+
+    <div class="col-lg-8  mb-3 align-content-center mx-auto">
         @include('alert.errors')
 
         <div class="card cover-image mb-3">
@@ -34,15 +35,7 @@
                         {{ Form::hidden('latitude', null, ['id' => 'latitude']) }}
                         {{ Form::hidden('longitude', null, ['id' => 'longitude']) }}
                     </div>
-                    <div class="col-12 mb-3">
-                        <p class="header mb-0">Адрес
-                            <span class="d-block fs--1" id="address_detail"></span>
-                            {{ Form::hidden('address', null, ['id' => 'address']) }}
-                            {{ Form::hidden('city', null, ['id' => 'city']) }}
-                            {{ Form::hidden('country', null, ['id' => 'country']) }}
-                        </p>
-                        <div id="map"></div>
-                    </div>
+
                     <div class="col-12">
                         <div class="border-bottom border-dashed my-3"></div>
                     </div>
@@ -141,9 +134,7 @@
                 </button>
             </div>
         </div>
-    </div>
 
-    <div class="col-lg-4 ps-lg-2 mb-3">
         <div class="sticky-sidebar" style="top: 16px">
             <div class="card mb-lg-0">
                 <div class="card-header">
@@ -255,7 +246,8 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-8 pe-lg-2">
+
+    <div class="col-lg-8 align-content-center mx-auto">
         <div class="card">
             <div class="card-body">
                 <div class="row justify-content-between align-items-center">
@@ -269,4 +261,5 @@
             </div>
         </div>
     </div>
+
 </div>

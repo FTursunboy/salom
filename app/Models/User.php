@@ -100,6 +100,7 @@ class User extends BaseAuthenticatable
         'birth_date',
         'gender',
         'description',
+        'telegram'
     ];
 
     use HasApiTokens, HasFactory, Notifiable;
