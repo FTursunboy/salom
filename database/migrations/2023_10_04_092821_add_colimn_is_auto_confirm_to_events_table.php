@@ -8,7 +8,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::table('events', function (Blueprint $table) {
-            $table->boolean('is_auto_confirm')->default(false);
+            $table->boolean('is_auto_confirm')->default(true);
         });
     }
 

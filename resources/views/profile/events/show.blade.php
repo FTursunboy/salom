@@ -210,7 +210,7 @@
                             @endforeach
                             <h6 class="mt-4">Адрес</h6>
                             <div class="mb-1">
-                                {{ $event->city->name }}, {{ $event->address }} <br>
+                                {{ $event->city?->name }}, {{ $event->address }} <br>
                             </div>
                             <a href="#show_map">Посмотреть карту</a>
                         </div>

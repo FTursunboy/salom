@@ -84,7 +84,7 @@
                 created_by: '{{ $event->created_by->full_name }}',
                 category: '{{ $event->event_category->name }}',
                 status: '{{ $event->event_status->name }}',
-                address: '{{ $event->city->name . ', ' . $event->address }}',
+                address: '{{ $event->city?->name . ', ' . $event->address }}',
                 created_at: '{{ $event->created_at }}'
             },
             @endforeach

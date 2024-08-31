@@ -327,14 +327,14 @@
                             @endforeach
                             <h6 class="mt-4">Адрес</h6>
                             <div class="mb-1">
-                                {{ $event->country->name }}, {{ $event->city->name }} <br>
+                                {{ $event->country?->name }}, {{ $event->city?->name }} <br>
                                 {{ $event->address }} <br>
                             </div>
                             <a href="#show_map">Посмотреть карту</a>
                         </div>
                     </div>
                 </div>
-            </div>
+            </di
         </div>
     </div>
 @endsection
