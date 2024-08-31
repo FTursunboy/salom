@@ -23,7 +23,7 @@ class EventRegistrationService implements EventRegistrationServiceContract
         $data = array_merge($data, [
             'user_id' => auth()->user()->id,
             'event_id' => $eventId,
-            'event_registration_status_id' => $confirm ? EventRegistrationStatusHelper::Confirmed : EventRegistrationStatusHelper::AwaitingConfirmation,
+            'event_registration_status_id' => EventRegistrationStatusHelper::Confirmed
         ]);
 
         $this->eventRepositoryContract->incrementRegisteredUsers($eventId);
