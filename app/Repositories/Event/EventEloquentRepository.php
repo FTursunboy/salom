@@ -25,7 +25,7 @@ class EventEloquentRepository implements EventRepositoryContract
     {
         $data = array_merge($data, [
             'created_by_user_id' => auth()->user()->id,
-            'event_status_id' => EventStatusHelper::AwaitingConfirmation,
+            'event_status_id' => EventStatusHelper::Confirmed,
             'show_ticket_count' => ($data['show_ticket_count'] ?? null) == 'on',
             'free_entrance' => ($data['free_entrance'] ?? null) == 'on',
         ]);
