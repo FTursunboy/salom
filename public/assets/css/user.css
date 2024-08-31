@@ -14,8 +14,8 @@
 .btn-listing:active {
     outline: none; /* Убираем обводку при фокусе */
     box-shadow: none; /* Убираем тени при нажатии */
-    border: 1px solid #ffdf00; /* Оставляем бордер таким же, как и был */
-    background-color: #ffdf00; /* Оставляем фон таким же, как и был */
+    border: 1px solid #5F00A7; /* Оставляем бордер таким же, как и был */
+    background-color: #5F00A7; /* Оставляем фон таким же, как и был */
 }
 
 
