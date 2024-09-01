@@ -27,7 +27,7 @@
                     <p>📧 Email: <a href="mailto:info@anons.life">info@anons.life</a></p>
                     <p>
                         <i class="fab fa-telegram"></i> Telegram:
-                        <a href="https://t.me/anonssupportbot" target="_blank">@anonssupportbot</a>
+                        <a href="https://t.me/anonstjbot" target="_blank">@anonstjbot</a>
                     </p>
 
                     <p>Не стесняйтесь связываться с нами по адресу электронной почты для любых вопросов, предложений или

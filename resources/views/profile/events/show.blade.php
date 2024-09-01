@@ -34,22 +34,22 @@
                             <span class="fas fa-eye text-danger me-1 text-900"></span>
                             {{ $event->view_count }}
                         </span>
-                        <span class="me-3">
-                            <button id="add_to_favorite" type="button" class="btn btn-outline-primary @if(!empty($favorite)) d-none @endif" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Добавить в избранное">
-                                <i class="far fa-bookmark"></i>
-                            </button>
-                            <button id="remove_from_favorite" type="button" class="btn btn-primary text-white @if(empty($favorite)) d-none @endif" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Удалить из избранного">
-                                <i class="far fa-bookmark"></i>
-                            </button>
-                        </span>
+    {{--                        <span class="me-3">--}}
+    {{--                            <button id="add_to_favorite" type="button" class="btn btn-outline-primary @if(!empty($favorite)) d-none @endif" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Добавить в избранное">--}}
+    {{--                                <i class="far fa-bookmark"></i>--}}
+    {{--                            </button>--}}
+    {{--                            <button id="remove_from_favorite" type="button" class="btn btn-primary text-white @if(empty($favorite)) d-none @endif" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Удалить из избранного">--}}
+    {{--                                <i class="far fa-bookmark"></i>--}}
+    {{--                            </button>--}}
+    {{--                        </span>--}}
                         @csrf
 
-                        @if($event->free_entrance)
-                            <button class="btn btn-primary px-4 me-3 mb-3" type="button" data-bs-toggle="modal"
-                                    data-bs-target="#error-modal">свободный вход
-                                <span class="fas fa-check-circle text-white"></span>
-                            </button>
-                        @endif
+{{--                        @if($event->free_entrance)--}}
+{{--                            <button class="btn btn-primary px-4 me-3 mb-3" type="button" data-bs-toggle="modal"--}}
+{{--                                    data-bs-target="#error-modal">свободный вход--}}
+{{--                                <span class="fas fa-check-circle text-white"></span>--}}
+{{--                            </button>--}}
+{{--                        @endif--}}
 
                         @if(empty(auth()->user()) && !$event->free_entrance)
                             <button class="btn btn-primary px-4" type="button" data-bs-toggle="modal"

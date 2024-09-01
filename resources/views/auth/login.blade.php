@@ -42,7 +42,11 @@
                     {{ trans('auth.login') }}
                 </button>
             </div>
-
+            <div class="mb-3">
+                <button class="btn btn-primary d-block w-100 mt-3" type="submit" name="submit">
+                    Войти через Telegram
+                </button>
+            </div>
         </form>
     </div>
 

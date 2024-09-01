@@ -19,7 +19,7 @@
             <a class="dropdown-item" href="{{ route('profile.index') }}">Профиль</a>
             <a class="dropdown-item" href="{{ route('profile.setting') }}">Настройки профиля</a>
             <a class="dropdown-item" href="{{ route('tickets.index') }}">Мои билеты</a>
-            <a class="dropdown-item" href="{{ route('profile.favorite.index') }}">Избранное</a>
+         <!--   <a class="dropdown-item" href="{{ route('profile.favorite.index') }}">Избранное</a> -->
             <a class="dropdown-item" href="{{ route('profile.events.index') }}">Мои события</a>
             <a class="dropdown-item" href="{{ route('profile.events.create') }}">Добавить события</a>
             <div class="dropdown-divider"></div>

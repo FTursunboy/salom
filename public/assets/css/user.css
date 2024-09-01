@@ -19,48 +19,94 @@
 }
 
 
+ body {
+     width: 100%;
+     margin: 0 auto;
+ }
+
+@media (min-width: 768px) {
+    body {
+        width: 70%;
+    }
+}
+@media (max-width: 768px) {
+    #loginB {
+        padding-left: 18px;
+        color: black;
+        margin-top: 10px;
+    }
+    #eventB {
+        margin-top: 10px;
+        color: black;
+
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-collapse {
+        padding: 10px;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 10px 15px;
+        color: #333;
+        text-decoration: none;
+        font-size: 16px;
+        text-align: left; /* Ensure text alignment is to the left */
+    }
+
+    .nav-item {
+        width: 100%; /* Make the items take full width of the navbar */
+        border-bottom: 1px solid #eaeaea; /* Optional: divider line */
+    }
+
+}
+
+
 .btn-listing:active .icon {
     transform: rotate(5deg); /* Пример эффекта при нажатии */
 }
+@media (min-width: 768px) {
+    .postadd {
+        background-color: #5F00A7; /* Желтый цвет фона */
+        color: #FFFFFF; /* Черный цвет текста */
+        /* Внутренние отступы для кнопки */
+        border-radius: 5px; /* Закругленные углы */
+        font-size: 16px; /* Размер шрифта */
+        text-align: center; /* Выравнивание текста по центру */
+        border: 1px solid #5F00A7; /* Граница с тем же цветом, что и фон */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Легкая тень */
+        cursor: pointer; /* Курсор в виде руки при наведении */
+        margin-left: 20px;
+        margin-right: 20px;
+    }
 
-.postadd {
-    background-color: #5F00A7; /* Желтый цвет фона */
-    color: #FFFFFF; /* Черный цвет текста */
-    /* Внутренние отступы для кнопки */
-    border-radius: 5px; /* Закругленные углы */
-    font-size: 16px; /* Размер шрифта */
-    text-align: center; /* Выравнивание текста по центру */
-    border: 1px solid #5F00A7; /* Граница с тем же цветом, что и фон */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Легкая тень */
-    cursor: pointer; /* Курсор в виде руки при наведении */
-    margin-left: 20px;
-    margin-right: 20px;
-}
+    .postadd a {
+        color: #FFFFFF;
+        font-size: 14px;
+    }
 
-.postadd a {
-    color: #FFFFFF;
-    font-size: 14px;
-}
+    .postadd:hover {
+        background-color: #5F00A7; /* Желтый цвет фона */
+        color: #FFFFFF; /* Черный цвет текста */
+        /* Внутренние отступы для кнопки */
+        border-radius: 5px; /* Закругленные углы */
+        font-size: 16px; /* Размер шрифта */
+        text-align: center; /* Выравнивание текста по центру */
+        border: 1px solid #5F00A7; /* Граница с тем же цветом, что и фон */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Легкая тень */
+        cursor: pointer; /* Курсор в виде руки при наведении */
+        margin-left: 20px;
+        margin-right: 20px;
+    }
 
-.postadd:hover {
-    background-color: #5F00A7; /* Желтый цвет фона */
-    color: #FFFFFF; /* Черный цвет текста */
-    /* Внутренние отступы для кнопки */
-    border-radius: 5px; /* Закругленные углы */
-    font-size: 16px; /* Размер шрифта */
-    text-align: center; /* Выравнивание текста по центру */
-    border: 1px solid #5F00A7; /* Граница с тем же цветом, что и фон */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Легкая тень */
-    cursor: pointer; /* Курсор в виде руки при наведении */
-    margin-left: 20px;
-    margin-right: 20px;
-}
+    .postadd:hover a {
 
-.postadd:hover a {
+        color: #FFFFFF;
+        font-size: 14px;
 
-    color: #FFFFFF;
-    font-size: 14px;
-
+    }
 }
 
 .focus-cat-list .wrapper::-webkit-scrollbar {

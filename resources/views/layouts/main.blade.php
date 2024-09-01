@@ -6,6 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <meta name="description" content="Афиша Душанбе: расписание событий, концертов, кино, фестивалей и других мероприятий. Узнайте, куда сходить в Душанбе на anons.tj и выберите лучшее развлечение по вашему вкусу.">
+    <meta name="title" content="Афиша Душанбе — куда сходить: концерты, кино, фестивали, мероприятия — anons.tj">
+
+    <!-- Мета-ключевые слова -->
+    <meta name="keywords" content="афиша Душанбе, куда сходить в Душанбе, расписание концертов, киноафиша Душанбе, мероприятия Душанбе, события в Душанбе, афиша событий Душанбе">
+
     <!-- ===============================================--><!--    Document Title-->
     <!-- ===============================================-->
     <title>@section('title')
@@ -81,20 +87,20 @@
         * {
             text-decoration: none !important;
         }
+
     </style>
     @yield('styles')
 </head>
 
-<body>
+<body >
 <!-- ===============================================--><!--    Main Content-->
 <!-- ===============================================-->
 <main  class="main @yield('main-class') " id="top">
-
     @include('layouts.partials.header')
 
-    <div style="width: 70%" class="align-content-center mx-auto">
+
     @yield('content')
-    </div>
+
     @include('layouts.partials.footer')
 
 </main>
@@ -112,7 +118,36 @@
     <script src="{{ asset('vendors/list.js/list.min.js') }}"></script>
     <script src="{{ asset('assets/js/theme.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
 
+    document.addEventListener('DOMContentLoaded', function () {
+        function updateLinkClass() {
+            const loginLink = document.getElementById('loginB'); // Selects the <a> inside .nav-item
+            const event = document.getElementById('eventB'); // Selects the <a> inside .nav-item
+            console.log(loginLink)
+            if (window.innerWidth <= 768) {
+                console.log(1)
+                // Mobile version
+                loginLink.classList.remove('btn');
+                loginLink.classList.remove('btn-outline-primary');
+            } else {
+                // Desktop version
+                console.log(2)
+                loginLink.classList.add('btn');
+                loginLink.classList.add('btn-outline-primary');
+
+            }
+        }
+
+        // Run the function once when the page loads
+        updateLinkClass();
+
+        // Add event listener to run the function whenever the window is resized
+        window.addEventListener('resize', updateLinkClass);
+    });
+
+
+</script>
     @yield('scripts')
 
 </body>

@@ -1,6 +1,5 @@
 <div class="row g-0">
 
-    <div class="col-lg-8  mb-3 align-content-center mx-auto">
         @include('alert.errors')
 
         <div class="card cover-image mb-3">
@@ -135,7 +134,7 @@
             </div>
         </div>
 
-        <div class="sticky-sidebar" style="top: 16px">
+        <div class="sticky-sidebar" style="top: 16px; margin-top: 10px">
             <div class="card mb-lg-0">
                 <div class="card-header">
                     <h5 class="mb-0">Дополнительная информация</h5>
@@ -179,12 +178,7 @@
                             Показать количество оставшихся билетов.
                         </label>
                     </div>
-                    <div class="form-check custom-checkbox mb-0">
-                        {{ Form::checkbox('free_entrance', null, null, ['class' => 'form-check-input']) }}
-                        <label class="form-label mb-0" for="customRadio6">
-                            Свободный вход
-                        </label>
-                    </div>
+
                 </div>
             </div>
             <div class="card mb-lg-0 mt-3">
@@ -247,8 +241,8 @@
         </div>
     </div>
 
-    <div class="col-lg-8 align-content-center mx-auto">
-        <div class="card">
+
+        <div class="card" style="margin-top: 15px">
             <div class="card-body">
                 <div class="row justify-content-between align-items-center">
                     <div class="col-md">
@@ -260,6 +254,5 @@
                 </div>
             </div>
         </div>
-    </div>
 
-</div>
+
