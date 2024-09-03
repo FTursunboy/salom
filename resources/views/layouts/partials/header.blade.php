@@ -1,5 +1,5 @@
 <div class="bg-white">
-    <div class="container">
+    <div class="container" style="border-bottom: 1px solid grey">
         <nav class="navbar bg-white navbar-expand-lg navbar-light">
             <a class="navbar-brand me-1 me-sm-3" href="{{ route('home') }}">
                 <img style="margin-top: 10px" width="110px" src="{{asset('anons.png')}}" alt="Anons Logo">

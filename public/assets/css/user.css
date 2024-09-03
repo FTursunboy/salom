@@ -24,6 +24,27 @@ body {
     margin: 0 auto;
 }
 
+.call-button-container {
+    position: fixed;
+    bottom: 20px; /* Расстояние от низа экрана */
+    left: 45%;
+    margin-left: 20px;
+    transform: translateX(-50%);
+    width: 90%; /* Ширина кнопки */
+    max-width: 500px; /* Максимальная ширина кнопки */
+    z-index: 1000; /* Убедитесь, что кнопка всегда сверху */
+    text-align: center; /* Центрирование текста */
+    padding: 10px; /* Внутренний отступ */
+    background-color: #ffffff; /* Фон кнопки */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для кнопки */
+    border-radius: 8px; /* Скругленные углы */
+    transition: position 0.3s ease;
+}
+
+.call-button-container.fixed {
+    position: absolute;
+    bottom: initial;
+}
 
 body {
     background-color: #ffffff; /* Белый фон для body */

@@ -4,8 +4,10 @@
 
 @section('content')
     <div class="container">
-        <div class="col-12">
-
+        <div class="col-12" style="margin-top: 14px">
+            <p style=" font-size: 18px; color: black ">Календарь событий Душанбе</p>
+            <p style="font-size: 12.5px; color: black; margin-top: -10px">Выбрав конкретный день или период вы сможете
+                увидеть все события, вечеринки, концерты, рестораны, <br> выставки, кино и многое другое</p>
         </div>
         <div class="col-12">
             <nav class="focus-cat-list" id="calendar-widget">
@@ -16,41 +18,43 @@
                         <div class="d-flex">
                             @for($i = 0; $i < $countDaysEvents; $i++)
                                 @if($i == 0 || \Carbon\Carbon::now()->addDays($i)->day == 1)
-                                </div> </div>
-                                    <div>
-                                        <span class="calendar-custom-month-name me-5">
+                        </div>
+                    </div>
+                    <div>
+                                        <span class="calendar-custom-month-name me-5"
+                                              style="color: black; padding-left: -5px">
                                             {{ $months[\Carbon\Carbon::now()->addDays($i)->month - 1] }}
                                         </span>
-                                        <div class="d-flex">
-                                @endif
-                                @php
-                                    $date = \Carbon\Carbon::now()->addDays($i);
-                                    $class = '';
-                                    $calendarActiveClass = '';
-                                    $active = $eventDaysActive[$date->toDateString()] ?? false;
-                                    if ($i == 0 && empty($requestDate) || ($requestDate == $date->format('Y-m-d'))) {
-                                        $calendarActiveClass .= 'calendar-custom-active ';
-                                    }
-                                    if(\Carbon\Carbon::now()->addDays($i)->endOfMonth()->toDateString() == $date->toDateString()) {
-                                        $class = ' me-5';
-                                    }
-                                    if ($active) {
-                                        $calendarActiveClass .= 'calendar-custom-hover';
-                                    } else {
-                                        $calendarActiveClass .= 'opacity-50';
-                                    }
-                                @endphp
-                                <a @if($active) href="?date={{ $date->format('Y-m-d') }}" @endif
-                                class="text-black text-decoration-none {{ $class }}">
-                                    <div class="calendar-custom {{ $calendarActiveClass }}">
+                        <div class="d-flex">
+                            @endif
+                            @php
+                                $date = \Carbon\Carbon::now()->addDays($i);
+                                $class = '';
+                                $calendarActiveClass = '';
+                                $active = $eventDaysActive[$date->toDateString()] ?? false;
+                                if ($i == 0 && empty($requestDate) || ($requestDate == $date->format('Y-m-d'))) {
+                                    $calendarActiveClass .= 'calendar-custom-active ';
+                                }
+                                if(\Carbon\Carbon::now()->addDays($i)->endOfMonth()->toDateString() == $date->toDateString()) {
+                                    $class = ' me-5';
+                                }
+                                if ($active) {
+                                    $calendarActiveClass .= 'calendar-custom-hover';
+                                } else {
+                                    $calendarActiveClass .= 'opacity-50';
+                                }
+                            @endphp
+                            <a @if($active) href="?date={{ $date->format('Y-m-d') }}" @endif
+                            class="text-black text-decoration-none {{ $class }}">
+                                <div class="calendar-custom {{ $calendarActiveClass }}">
                                         <span class="calendar-custom-month">
                                             {{ $weeks[$date->format('w')] }}
                                         </span>
-                                        <span class="calendar-custom-day">
+                                    <span class="calendar-custom-day">
                                             {{ $date->day }}
                                         </span>
-                                    </div>
-                                </a>
+                                </div>
+                            </a>
                             @endfor
                         </div>
                     </div>
@@ -77,45 +81,43 @@
                 </div>
                 <div class="row">
                     @foreach($eventCategory->custom_events as $event)
-                        <div class="col-lg-4 col-md-6 h-100 mb-4">
-                            <div class="row">
-                                <div class="col-4 col-sm-5 col-md-4">
-                                    <div class="position-relative h-sm-100">
-                                        <a class="d-block w-100"
-                                           href="{{ route('events.show', $event)  }}">
-                                            <img class="img-fluid object-fit-cover w-sm-100 h-sm-100 rounded-1 absolute-sm-centered"
-                                                 src="{{ $event->thumb_photo_path }}" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-8 col-sm-7 col-md-8">
-                                    <h5 class="">
-                                        <a class="text-1100 fs-0 fs-lg-1" href="{{ route('events.show', $event) }}">
-                                            {{ $event->title }}
-                                        </a>
-                                    </h5>
-                                    <p class="fs--1 mb-0">
-                                        @if($event->start_date != $event->end_date)
-                                            с {{ $event->start_date->day }}
-                                            @if($event->end_date->month != $event->start_date->month)
-                                                {{ $monthWithSuffixes[$event->start_date->month - 1] }}
-                                            @endif
-                                            по
-                                        @endif
-                                        {{ $event->end_date->day }} {{ $monthWithSuffixes[$event->end_date->month - 1] }}
-                                    </p>
-                                    <p class="fs--1 mb-0">
-                                        @if($event->organizer)
-                                            {{ $event->organizer }}
-                                        @else
-                                            <a class="text-900" href="{{ route('profile.show', $event->created_by) }}">
-                                                {{ $event->created_by->full_name }}
-                                            </a>
-                                        @endif
-                                    </p>
-                                </div>
-                            </div>
+
+                        <div class="col-12">
+                            <a class="d-block w-100"
+                               href="{{ route('events.show', $event)  }}">
+                                <img style="border-radius: 15px"
+                                    class="img-fluid object-fit-cover w-sm-100 h-sm-100 w-100 absolute-sm-centered"
+                                    src="{{ $event->thumb_photo_path }}" alt="">
+                            </a>
                         </div>
+
+                        <div class="col-8 col-sm-7 col-md-8">
+                            <h5 class="">
+                                <h3 class="text-1100 fs-0 fs-lg-1" href="{{ route('events.show', $event) }}">
+                                    {{ $event->title }}
+                                </h3>
+                            </h5>
+                            <p class="fs--1 mb-0">
+                                @if($event->start_date != $event->end_date)
+                                    с {{ $event->start_date->day }}
+                                    @if($event->end_date->month != $event->start_date->month)
+                                        {{ $monthWithSuffixes[$event->start_date->month - 1] }}
+                                    @endif
+                                    по
+                                @endif
+                                {{ $event->end_date->day }} {{ $monthWithSuffixes[$event->end_date->month - 1] }}
+                            </p>
+                            <p class="fs--1 mb-0">
+                                @if($event->organizer)
+                                    {{ $event->organizer }}
+                                @else
+                                    <a class="text-900" href="{{ route('profile.show', $event->created_by) }}">
+                                        {{ $event->created_by->full_name }}
+                                    </a>
+                                @endif
+                            </p>
+                        </div>
+
                     @endforeach
                 </div>
             </div>
@@ -149,7 +151,7 @@
             });
         });
 
-        $("#calendar").scroll(function(){
+        $("#calendar").scroll(function () {
             checkPosition();
         });
 
