@@ -10,17 +10,18 @@
                 <div class="row justify-content-between align-items-center">
                     <div class="col">
                         <div class="d-flex">
-                            <div class="flex-1 fs--1">
-                                <h5 class="fs-0">{{ $event->title }}
+                            <div class="flex-1 fs--1 events_show">
+                                <h3 class="fs-0">{{ $event->title }}
                                     <br><span class="fs--1 fw-normal">Рубрика: {{ $event->event_category->name }}</span>
-                                </h5>
-                                <p class="mb-0">Организатор:
-                                    @if($event->organizer)
-                                        {{ $event->organizer }}
-                                    @else
-                                        <a href="{{ route('profile.show', $event->created_by) }}">{{ $event->created_by->full_name }}</a>
-                                    @endif
+                                </h3>
+                                <p class="mb-0">
+                                    Опубликовано: {{ $event->created_at->locale('ru')->translatedFormat('j F') }} -
+                                    <span class="me-3 pt-1">
+                            <span class="fas fa-eye text-danger me-1 text-900"></span>
+                            {{ $event->view_count }}
+                        </span>
                                 </p>
+
                                 @if($event->event_type == 'paid')
                                     <span class="fs-0 text-warning fw-semi-bold">
                                         {{ $event->ticket_amount }} смн
@@ -29,28 +30,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-auto mt-4 mt-md-0 d-md-flex gap-3 gap-md-0 justify-content-md-between justify-items-md-center">
-                        <span class="me-3 pt-1">
-                            <span class="fas fa-eye text-danger me-1 text-900"></span>
-                            {{ $event->view_count }}
-                        </span>
-    {{--                        <span class="me-3">--}}
-    {{--                            <button id="add_to_favorite" type="button" class="btn btn-outline-primary @if(!empty($favorite)) d-none @endif" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Добавить в избранное">--}}
-    {{--                                <i class="far fa-bookmark"></i>--}}
-    {{--                            </button>--}}
-    {{--                            <button id="remove_from_favorite" type="button" class="btn btn-primary text-white @if(empty($favorite)) d-none @endif" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Удалить из избранного">--}}
-    {{--                                <i class="far fa-bookmark"></i>--}}
-    {{--                            </button>--}}
-    {{--                        </span>--}}
+
+                    <div
+                        class="col-md-auto mt-md-0 d-md-flex gap-3 gap-md-0 justify-content-md-between justify-items-md-center">
                         @csrf
-
-{{--                        @if($event->free_entrance)--}}
-{{--                            <button class="btn btn-primary px-4 me-3 mb-3" type="button" data-bs-toggle="modal"--}}
-{{--                                    data-bs-target="#error-modal">свободный вход--}}
-{{--                                <span class="fas fa-check-circle text-white"></span>--}}
-{{--                            </button>--}}
-{{--                        @endif--}}
-
                         @if(empty(auth()->user()) && !$event->free_entrance)
                             <button class="btn btn-primary px-4" type="button" data-bs-toggle="modal"
                                     data-bs-target="#error-modal">Записаться
@@ -153,88 +136,74 @@
                                     </div>
                                 </div>
                             @endif
-                        @elseif(auth()->user() == $event->created_by)
-                            <a href="{{ route('profile.events.show.analytics', $event) }}"
-                               class="justify-content-end btn btn-primary px-4 mb-3">
-                                Аналитика
-                            </a>
                         @endif
 
                     </div>
                 </div>
             </div>
         </div>
+        <div class="card mb-3">
+            <div class="event-header">
+                <i class="far fa-calendar-check" style="margin-right: 10px; margin-top: -1px"></i> 12-15 сентября
+            </div>
+            <div style="padding: 0 18px">
+                <div class="event-item">
+                    <i style="font-size: 18px" class="fas fa-map-marker-alt"></i>
+                    <span class="event-text">г. Душанбе, улица М. Турсунзаде, 45</span>
+                </div>
+                <div class="event-item">
+                    <i style="font-size: 18px " class="far fa-clock"></i>
+                    <span class="event-text">19:00</span>
+                </div>
+                <div class="event-item">
+                    <i style="font-size: 18px; " class="fas fa-dollar-sign"></i>
+                    <span class="event-text" style="font-weight: bold">от 100 сомони</span>
+                </div>
+                <div class="event-item">
+                    <i style="font-size: 18px" class="fas fa-link"></i>
+                    <span class="event-text">link</span>
+                </div>
+            </div>
+        </div>
 
-        <div class="row g-0">
+
+        <div class="row g-0 mt-3">
             <div class="col-lg-8 pe-lg-2">
                 <div class="card mb-3 mb-lg-0">
-                    <div class="card-body">
-                        <h5 class="fs-0 mb-3">{{ $event->title }}</h5>
+                    <div class="card-body" style="color: black">
+                        <h5 style="font-weight: bold; margin-bottom: 10px">О событии</h5>
                         {!! $event->text !!}
-
-                        <h5 class="fs-0 mt-5 mb-2">Контактная информация</h5>
-                        @foreach($event->phones ?? [] as $item)
-                            @if($item)
-                                <a class="badge border link-secondary me-1 text-decoration-none" href="tel:{{ $item }}">
-                                    {{ $item }}
-                                </a>
-                            @endif
-                        @endforeach
-                        @foreach($event->sites_validated as $item)
-                            <a target="_blank" class="badge border link-secondary me-1 text-decoration-none"
-                               href="{{ $item['url'] }}">
-                                {!! $item['title'] !!}
-                            </a>
-                        @endforeach
-
-                        <div id="show_map" class="min-vh-25 w-100 mt-5"></div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="col-lg-4 ps-lg-2">
-                <div class="sticky-sidebar" style="top: 16px">
-                    <div class="card mb-3 fs--1">
-                        <div class="card-body">
-                            <h6>Дата и время</h6>
-                            @foreach($schedules as $key => $value)
-                                <p class="mb-1">
-                                    <span class="fw-bold">
-                                        {{ \Carbon\Carbon::parse($key)->translatedFormat('d M Y (D)')  }}
-                                    </span>
-                                    @foreach($value as $item)
-                                        <br> {{ $item->start_time->format('H:i') }}
-                                        - {{ $item->end_time->format('H:i') }} - {{ $item->title }}
-                                    @endforeach
-                                </p>
-                            @endforeach
-                            <h6 class="mt-4">Адрес</h6>
-                            <div class="mb-1">
-                                {{ $event->city?->name }}, {{ $event->address }} <br>
-                            </div>
-                            <a href="#show_map">Посмотреть карту</a>
-                        </div>
+        <div class="card mb-3">
+            <div class="card-body text-center">
+                <div class="row" style="border-bottom: 1px solid black">
+                    <div style="width: 40%">
+                        <h4 style="padding: 25px 0; font-weight: bold; color: black">Я пойду!</h4>
                     </div>
-
-                    @if(auth()->user() && auth()->user()->is_admin)
-                        <div class="card mb-3 fs--1">
-                            <div class="card-body">
-                                <h5>Администрирование</h5>
-                                <span>Статус: {{ $event->event_status->name }}</span>
-                                <br>
-                                @if($event->event_status_id != \App\Services\Common\Helpers\Event\EventStatus\EventStatusHelper::Confirmed->value)
-                                    {{ Form::open(['url' => route('admin.events.confirm', $event), 'class' => 'd-grid']) }}
-                                    {{ Form::submit('Одобрить события', ['class' => 'btn btn-primary mt-3']) }}
-                                    {{ Form::close() }}
-                                @endif
-                                @if($event->event_status_id != \App\Services\Common\Helpers\Event\EventStatus\EventStatusHelper::Canceled->value)
-                                    {{ Form::open(['url' => route('admin.events.cancel', $event), 'class' => 'd-grid']) }}
-                                    {{ Form::submit('Отменить события', ['class' => 'btn btn-primary mt-3']) }}
-                                    {{ Form::close() }}
-                                @endif
-                            </div>
-                        </div>
-                    @endif
+                    <div class="text-start" style="max-width: 250px; width: 60%; color: black; font-size: 14px">
+                        <p>Отметьтесь и расскажите об этом событии друзьям, <br> чтобы они смогли к вам присоединиться!</p>
+                    </div>
+                </div>
+                <div class="d-flex gap-5 me-5" style="margin-top: 10px;">
+                    <div class="d-flex align-items-center" style="border-right: 1px solid black; ">
+                        <i class="fab fa-telegram" style="font-size: 33px; color: #0088cc;"></i>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <i class="fab fa-facebook" style="font-size: 33px; color: #1877f2;"></i>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <i class="fab fa-instagram" style="font-size: 33px; color: #e1306c;"></i>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <i class="fab fa-whatsapp" style="font-size: 33px; color: #25D366;"></i>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-link" style="font-size: 33px; color: #000000;"></i>
+                    </div>
                 </div>
             </div>
         </div>

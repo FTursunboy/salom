@@ -9,26 +9,8 @@
         </div>
         <div class="col-12">
             <nav class="focus-cat-list" id="calendar-widget">
-                <div class="previous" id="previous">
-                    <i>
-                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left"
-                             class="svg-inline--fa fa-chevron-left " role="img" xmlns="http://www.w3.org/2000/svg"
-                             viewBox="0 0 320 512">
-                            <path fill="currentColor"
-                                  d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"></path>
-                        </svg>
-                    </i>
-                </div>
-                <div class="next" id="next">
-                    <i>
-                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right"
-                             class="svg-inline--fa fa-chevron-right " role="img" xmlns="http://www.w3.org/2000/svg"
-                             viewBox="0 0 320 512">
-                            <path fill="currentColor"
-                                  d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"></path>
-                        </svg>
-                    </i>
-                </div>
+
+
                 <div class="d-flex wrapper mt-lg-5 pb-lg-4 font-family-montserrat" id="calendar">
                     <div>
                         <div class="d-flex">
