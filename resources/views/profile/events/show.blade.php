@@ -147,11 +147,12 @@
             <div style="padding: 0 18px">
                 <div class="event-item">
                     <i style="font-size: 18px; margin-left: 1px" class="fas fa-map-marker-alt"></i>
-                    <span class="event-text">г. Душанбе, улица М. Турсунзаде, 45</span>
+                    <span class="event-text">г. Душанбе, {{$event?->popularPlace?->name}}</span>
                 </div>
                 <div class="event-item">
                     <i style="font-size: 18px " class="far fa-clock"></i>
-                    <span class="event-text">19:00</span>
+                    <span class="event-text">{{ $event->schedules->first()->start_time->format('H:i') }}</span>
+
                 </div>
                 <div class="event-item">
                     <i style="font-size: 18px; margin-left: 3px" class="fas fa-dollar-sign"></i>
@@ -159,8 +160,11 @@
                 </div>
                 <div class="event-item">
                     <i style="font-size: 18px" class="fas fa-link"></i>
-                    <span class="event-text">link</span>
+                    @foreach($event->sites as $site)
+                        <a href="{{ $site }}" class="event-text">{{ $site }}</a><br>
+                    @endforeach
                 </div>
+
             </div>
         </div>
 
@@ -224,16 +228,13 @@
         <div class="stop">
 
         </div>
+
     </div>
 @endsection
 
-@section('styles')
-    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey={{ env('YANDEX_MAP_KEY') }}"
-            type="text/javascript"></script>
-@endsection
 
 @section('scripts')
-    <script src="https://unpkg.com/imask"></script>
+
     <script>
         document.addEventListener('scroll', function() {
             var buttonContainer = document.querySelector('.call-button-container');
@@ -256,97 +257,5 @@
         });
 
 
-        ymaps.ready(function () {
-            var coords = [{{ $event->latitude }}, {{ $event->longitude }}];
-            var myMap = new ymaps.Map('show_map', {
-                zoom: 15,
-                center: coords,
-                controls: []
-            });
-
-            var myPlacemark = createPlacemark(coords);
-            myMap.geoObjects.add(myPlacemark);
-
-            myPlacemark.properties.set('iconCaption', 'поиск...');
-            ymaps.geocode(coords).then(function (res) {
-                var firstGeoObject = res.geoObjects.get(0);
-
-                myPlacemark.properties
-                    .set({
-                        // Формируем строку с данными об объекте.
-                        iconCaption: [
-                            // Название населенного пункта или вышестоящее административно-территориальное образование.
-                            firstGeoObject.getLocalities().length ? firstGeoObject.getLocalities() : firstGeoObject.getAdministrativeAreas(),
-                            // Получаем путь до топонима, если метод вернул null, запрашиваем наименование здания.
-                            firstGeoObject.getThoroughfare() || firstGeoObject.getPremise()
-                        ].filter(Boolean).join(', '),
-                        // В качестве контента балуна задаем строку с адресом объекта.
-                        balloonContent: firstGeoObject.getAddressLine()
-                    });
-                document.getElementById('address_detail').innerHTML = firstGeoObject.getAddressLine();
-                document.getElementById('address').value = firstGeoObject.getAddressLine();
-                document.getElementById('country').value = firstGeoObject.getCountry();
-
-                document.getElementById('city').value = "";
-                if (firstGeoObject.getLocalities().length > 0) {
-                    document.getElementById('city').value = firstGeoObject.getLocalities()[0];
-                }
-            });
-        });
-
-        function createPlacemark(coords) {
-            return new ymaps.Placemark(coords, {
-                iconCaption: 'поиск...'
-            }, {
-                preset: 'islands#violetDotIconWithCaption',
-                draggable: false
-            });
-        }
-
-        $('#add_to_favorite').on('click', function () {
-            let token = $("input[name='_token']").val();
-            $.ajax({
-                url: '{{ route('events.favorite.add', $event) }}',
-                method: 'POST',
-                data: {
-                    _token: token
-                },
-                success: function () {
-                    $('#add_to_favorite').addClass('d-none');
-                    $('#remove_from_favorite').removeClass('d-none');
-                }
-            });
-        });
-
-        $('#remove_from_favorite').on('click', function () {
-            let token = $("input[name='_token']").val();
-            $.ajax({
-                url: '{{ route('events.favorite.remove', $event) }}',
-                method: 'DELETE',
-                data: {
-                    _token: token
-                },
-                success: function () {
-                    $('#remove_from_favorite').addClass('d-none');
-                    $('#add_to_favorite').removeClass('d-none');
-                }
-            });
-        });
-
-        @if(empty(auth()->user()))
-        IMask(
-            document.getElementById('phone'),
-            {
-                mask: '+{992}(00)000-00-00'
-            }
-        )
-
-        function formSubmit() {
-            let phone = $('#phone').val();
-            phone = phone.replace('+', '').replace('(', '').replace(')', '').replaceAll('-', '');
-            $('#phone').val(phone);
-            return true;
-        }
-        @endif
     </script>
 @endsection

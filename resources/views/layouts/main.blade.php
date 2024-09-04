@@ -114,37 +114,36 @@
     <script src="{{ asset('vendors/dropzone/dropzone.min.js') }}"></script>
     <script src="{{ asset('vendors/fontawesome/all.min.js') }}"></script>
     <script src="{{ asset('vendors/lodash/lodash.min.js') }}"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
     <script src="{{ asset('vendors/list.js/list.min.js') }}"></script>
     <script src="{{ asset('assets/js/theme.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 
-    document.addEventListener('DOMContentLoaded', function () {
-        function updateLinkClass() {
-            const loginLink = document.getElementById('loginB'); // Selects the <a> inside .nav-item
-            const event = document.getElementById('eventB'); // Selects the <a> inside .nav-item
-            console.log(loginLink)
-            if (window.innerWidth <= 768) {
-                console.log(1)
-                // Mobile version
-                loginLink.classList.remove('btn');
-                loginLink.classList.remove('btn-outline-primary');
-            } else {
-                // Desktop version
-                console.log(2)
-                loginLink.classList.add('btn');
-                loginLink.classList.add('btn-outline-primary');
-
-            }
-        }
-
-        // Run the function once when the page loads
-        updateLinkClass();
-
-        // Add event listener to run the function whenever the window is resized
-        window.addEventListener('resize', updateLinkClass);
-    });
+//    document.addEventListener('DOMContentLoaded', function () {
+//        function updateLinkClass() {
+//            const loginLink = document.getElementById('loginB'); // Selects the <a> inside .nav-item
+//            const event = document.getElementById('eventB'); // Selects the <a> inside .nav-item
+//            console.log(loginLink)
+//            if (window.innerWidth <= 768) {
+//                console.log(1)
+//                // Mobile version
+//                loginLink.classList.remove('btn');
+//                loginLink.classList.remove('btn-outline-primary');
+//            } else {
+//                // Desktop version
+//                console.log(2)
+//                loginLink.classList.add('btn');
+//                loginLink.classList.add('btn-outline-primary');
+//
+//            }
+//        }
+//
+//        // Run the function once when the page loads
+//        updateLinkClass();
+//
+//        // Add event listener to run the function whenever the window is resized
+//        window.addEventListener('resize', updateLinkClass);
+//    });
 
 
 </script>
