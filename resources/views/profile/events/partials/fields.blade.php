@@ -23,7 +23,7 @@
                     </div>
                     <div class="col-12 mb-0">
                         <label class="form-label" for="popular_place">Выберите место</label>
-                        <select id="popular_place" class="form-control js-choice mb-0"
+                        <select name="popular_place_id" id="popular_place" class="form-control js-choice mb-0"
                                 placeholder="Выберите место">
                             <option style="display: none"></option>
                             @foreach($popularPlaces as $item)

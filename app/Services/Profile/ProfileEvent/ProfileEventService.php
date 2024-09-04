@@ -30,6 +30,7 @@ class ProfileEventService implements ProfileEventContract
             'show_ticket_count' => ($data['show_ticket_count'] ?? null == 'on')
         ]);
 
+
         return $this->eventRepository->create($data);
     }
 

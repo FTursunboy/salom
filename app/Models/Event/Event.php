@@ -9,6 +9,7 @@ use App\Models\Event\EventSchedule\EventSchedule;
 use App\Models\Event\EventStatus\EventStatus;
 use App\Models\Locations\City\City;
 use App\Models\Locations\Country\Country;
+use App\Models\PopularPlace\PopularPlace;
 use App\Models\User;
 use App\Services\Common\Helpers\Image\ImageFolderHelper;
 use Eloquent as EloquentAlias;
@@ -129,12 +130,14 @@ class Event extends BaseModel
         'phones',
         'sites',
         'organizer',
+        'popular_place_id'
     ];
 
     protected $casts = [
         'phones' => 'array',
         'sites' => 'array',
         'additional_fields_json' => 'array',
+        'free_entrance' => 'boolean',
     ];
 
     public function event_status(): BelongsTo
@@ -255,5 +258,10 @@ class Event extends BaseModel
     public function getRouteKeyName(): string
     {
         return 'id_inc';
+    }
+
+    public function popularPlace() :BelongsTo
+    {
+        return $this->belongsTo(PopularPlace::class, 'popular_place_id');
     }
 }

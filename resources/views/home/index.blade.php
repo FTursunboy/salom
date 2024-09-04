@@ -4,15 +4,13 @@
 
 @section('content')
     <div class="container">
-        <div class="col-12" style="margin-top: 14px">
-            <p style=" font-size: 18px; color: black ">Календарь событий Душанбе</p>
-            <p style="font-size: 12.5px; color: black; margin-top: -10px">Выбрав конкретный день или период вы сможете
+        <div class="col-12" style="margin-top: 20px">
+            <h5 style=" font-size: 18px; font-weight: bold; margin-bottom: 18px ">Календарь событий Душанбе</h5>
+            <p style="font-size: 12.5px; color: black; margin-top: -10px; line-height: 16px;">Выбрав конкретный день или период вы сможете
                 увидеть все события, вечеринки, концерты, рестораны, <br> выставки, кино и многое другое</p>
         </div>
         <div class="col-12">
             <nav class="focus-cat-list" id="calendar-widget">
-
-
                 <div class="d-flex wrapper mt-lg-5 pb-lg-4 font-family-montserrat" id="calendar">
                     <div>
                         <div class="d-flex">
@@ -21,10 +19,10 @@
                         </div>
                     </div>
                     <div>
-                                        <span class="calendar-custom-month-name me-5"
-                                              style="color: black; padding-left: -5px">
+                                        <p class="calendar-custom-month-name me-5"
+                                              style="color: black;  margin-top: 10px">
                                             {{ $months[\Carbon\Carbon::now()->addDays($i)->month - 1] }}
-                                        </span>
+                                        </p>
                         <div class="d-flex">
                             @endif
                             @php
@@ -66,8 +64,8 @@
 
         @foreach($eventCategories as $eventCategory)
             <div class="col-12">
-                <div class="col-12 mt-5 mb-4">
-                    <h5 class="mb-0">{{ $eventCategory->name }}
+                <div class="col-12 mt-4 mb-4">
+                    <h5 class="mb-0" style="font-weight: bold">{{ $eventCategory->name }}
                         <span class="fw-normal fs-lg--1 text-secondary">
                             @if($requestDate == \Carbon\Carbon::now()->format('Y-m-d'))
                                 сегодня
@@ -85,19 +83,21 @@
                         <div class="col-12">
                             <a class="d-block w-100"
                                href="{{ route('events.show', $event)  }}">
-                                <img style="border-radius: 15px"
+                                <img style="border-radius: 15px; margin-top: -10px; height: 230px"
                                     class="img-fluid object-fit-cover w-sm-100 h-sm-100 w-100 absolute-sm-centered"
                                     src="{{ $event->thumb_photo_path }}" alt="">
                             </a>
                         </div>
 
-                        <div class="col-8 col-sm-7 col-md-8">
-                            <h5 class="">
-                                <h3 class="text-1100 fs-0 fs-lg-1" href="{{ route('events.show', $event) }}">
+                        <div class="col-12">
+                                <h3 style="font-weight: bold" class="text-1100 fs-0 fs-lg-1  mt-3" href="{{ route('events.show', $event) }}">
                                     {{ $event->title }}
                                 </h3>
-                            </h5>
-                            <p class="fs--1 mb-0">
+
+                            <p class="col-12">
+                                @if($event->free_entrance == false)
+                                    Бесплатно,
+                                @endif
                                 @if($event->start_date != $event->end_date)
                                     с {{ $event->start_date->day }}
                                     @if($event->end_date->month != $event->start_date->month)
@@ -105,17 +105,9 @@
                                     @endif
                                     по
                                 @endif
-                                {{ $event->end_date->day }} {{ $monthWithSuffixes[$event->end_date->month - 1] }}
+                                {{ $event->end_date->day }} {{ $monthWithSuffixes[$event->end_date->month - 1] }}, {{$event->popularPlace?->name}}
                             </p>
-                            <p class="fs--1 mb-0">
-                                @if($event->organizer)
-                                    {{ $event->organizer }}
-                                @else
-                                    <a class="text-900" href="{{ route('profile.show', $event->created_by) }}">
-                                        {{ $event->created_by->full_name }}
-                                    </a>
-                                @endif
-                            </p>
+
                         </div>
 
                     @endforeach
