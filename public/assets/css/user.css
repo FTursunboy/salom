@@ -24,7 +24,7 @@ body {
     margin: 0 auto;
 }
 
-.call-button-container {
+.call-button-container1 {
     position: fixed;
     bottom: 20px; /* Расстояние от низа экрана */
     left: 45%;
@@ -41,7 +41,7 @@ body {
     transition: position 0.3s ease;
 }
 
-.call-button-container.fixed {
+.call-button-container1.fixed {
     position: absolute;
     bottom: initial;
 }
@@ -64,7 +64,7 @@ body {
 .events_show h3 span {
     display: none;
 }
-.event-header {
+.event-header1 {
     background-color: #FF3B3B;
     color: white;
     padding: 15px;
@@ -75,7 +75,7 @@ body {
     align-items: center;
     margin-bottom: 10px;
 }
-.event-header i {
+.event-header1 i {
     margin-right: 10px;
 }
 

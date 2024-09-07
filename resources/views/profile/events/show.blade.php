@@ -221,7 +221,7 @@
         <!-- Call Button -->
         <!-- Call Button -->
         <div style="margin-top: 20px;" class="card d-flex justify-content-center align-items-center card-stop">
-            <div class="event-header call-button-container" style="width: 90%; margin-top: 10px; display: flex; justify-content: center; align-items: center; ">
+            <div class="event-header1 call-button-container1" style="width: 90%; margin-top: 10px; display: flex; justify-content: center; align-items: center; ">
                 Позвонить
             </div>
         </div>
@@ -236,25 +236,32 @@
 @section('scripts')
 
     <script>
-        document.addEventListener('scroll', function() {
-            var buttonContainer = document.querySelector('.call-button-container');
-            var cardElement = document.querySelector('.card-stop');
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log(2)
+            document.addEventListener('scroll', function() {
 
-            var cardPosition = cardElement.getBoundingClientRect().top + window.scrollY;
-            var scrollPosition = window.scrollY + window.innerHeight;
+                var buttonContainer = document.querySelector('.call-button-container1');
+                var cardElement = document.querySelector('.card-stop');
 
-            // Если скролл достиг блока .card
-            if (scrollPosition >= cardPosition) {
-                buttonContainer.style.position = 'relative';
-                buttonContainer.style.marginLeft = '-2px';
-                buttonContainer.style.top = '0'; // Закрепляем кнопку внутри блока
-            } else {
-                buttonContainer.style.position = 'fixed';
-                buttonContainer.style.bottom = '20px'; // Фиксируем кнопку внизу экрана
-                buttonContainer.style.marginLeft = '20px';
-                buttonContainer.style.top = ''; // Удаляем top
-            }
+                var cardPosition = cardElement.getBoundingClientRect().top + window.scrollY;
+                var scrollPosition = window.scrollY + window.innerHeight;
+
+                // Если скролл достиг блока .card
+                if (scrollPosition >= cardPosition) {
+                    console.log(2)
+                    buttonContainer.style.position = 'relative';
+                    buttonContainer.style.marginLeft = '-2px';
+                    buttonContainer.style.top = '0'; // Закрепляем кнопку внутри блока
+                } else {
+                    console.log(22)
+                    buttonContainer.style.position = 'fixed';
+                    buttonContainer.style.bottom = '20px'; // Фиксируем кнопку внизу экрана
+                    buttonContainer.style.marginLeft = '20px';
+                    buttonContainer.style.top = ''; // Удаляем top
+                }
+            });
         });
+
 
 
     </script>
