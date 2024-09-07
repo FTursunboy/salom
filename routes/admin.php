@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\Event\EventController;
 use App\Http\Controllers\Admin\User\UserController;
 
 Route::prefix('admin')->middleware(['auth', 'verified.phone', 'admin'])->name('admin.')->group(function () {
-    Route::get('/dashboard', DashboardController::class)->name('dashboard');
+    Route::get('/', DashboardController::class)->name('dashboard');
 
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
     Route::get('/events', [EventController::class, 'index'])->name('events.index');

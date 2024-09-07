@@ -9,22 +9,22 @@
             </a>
 
 
-            <div class="collapse navbar-collapse" id="navbarContent">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a id="eventB" class="btn btn-border btn-listing postadd" href="{{ route('profile.events.create') }}">
-                            Разместить событие
-                        </a>
-                    </li>
-                    @if(auth()->user())
-                        @include('layouts.partials.navbar_dropdown')
-                    @else
-                        <li class="nav-item">
-                            <a id="loginB" href="{{ route('login') }}">Войти</a>
-                        </li>
-                    @endif
-                </ul>
-            </div>
+{{--            <div class="collapse navbar-collapse" id="navbarContent">--}}
+{{--                <ul class="navbar-nav ms-auto">--}}
+{{--                    <li class="nav-item">--}}
+{{--                        <a id="eventB" class="btn btn-border btn-listing postadd" href="{{ route('profile.events.create') }}">--}}
+{{--                            Разместить событие--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                    @if(auth()->user())--}}
+{{--                        @include('layouts.partials.navbar_dropdown')--}}
+{{--                    @else--}}
+{{--                        <li class="nav-item">--}}
+{{--                            <a id="loginB" href="{{ route('login') }}">Войти</a>--}}
+{{--                        </li>--}}
+{{--                    @endif--}}
+{{--                </ul>--}}
+{{--            </div>--}}
         </nav>
     </div>
 </div>
