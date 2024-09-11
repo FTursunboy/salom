@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\Ticket\TicketController;
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,3 +67,10 @@ Route::delete('events/{event}/favorite', [FavoriteController::class, 'remove'])
     ->name('events.favorite.remove');
 
 Route::get('tickets', [TicketController::class, 'index'])->name('tickets.index');
+
+Route::get('tickets/{ticket}', [TicketController::class, 'show'])->name('tickets.show');
+
+
+Route::get('/auth/telegram/redirect', function (){
+    return  Socialite::driver('telegram')->redirect();
+});
