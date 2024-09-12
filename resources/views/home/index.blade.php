@@ -105,7 +105,7 @@
                                     @endif
                                     по
                                 @endif
-                                {{ $event->end_date->day }} {{ $monthWithSuffixes[$event->end_date->month - 1] }}, {{$event->popularPlace?->name}}
+                                {{ $event->end_date->day }} {{ $monthWithSuffixes[$event->end_date->month - 1] }}, {{$event->address}}
                             </p>
 
                         </div>

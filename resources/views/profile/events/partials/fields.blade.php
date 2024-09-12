@@ -47,35 +47,14 @@
             </div>
             <div class="card-body bg-body-tertiary">
                 <div id="event_schedules">
-                    @php
-                        $schedules = old('event_schedules', $event->schedules ?? ['']);
-                    @endphp
 
-                    @for($i = 0; $i < count($schedules); $i++)
-                        @php
-                            $item = [];
-                            if (Route::is('profile.events.edit') && empty(old('event_schedules'))) {
-                                $item = $schedules[$i]->toArray();
-                            }
-                        @endphp
+
                         <div class="border rounded-1 position-relative bg-white dark__bg-1100 p-3 mb-3"
-                             id="event_schedule_{{ $i }}">
-                            <div class="position-absolute end-0 top-0 mt-2 me-3 z-1">
-                                <button class="btn btn-link btn-sm p-0 event-schedule-btn" data-number="{{ $i }}"
-                                        type="button">
-                                        <span class="fas fa-times-circle text-danger"
-                                              data-fa-transform="shrink-1"></span>
-                                </button>
-                            </div>
+                             id="event_schedule_1">
                             <div class="row gx-2">
-                                <div class="col-12 mb-3">
-                                    <label class="form-label" for="schedule-title">Название</label>
-                                    {{ Form::text("event_schedules[" . ($item['id'] ?? $i) . "][title]", $item['title'] ?? null,
-                                    ['class' => 'form-control form-control-sm',]) }}
-                                </div>
                                 <div class="col-sm-6 mb-3">
                                     <label class="form-label" for="schedule-start-date">Дата начала</label>
-                                    {{ Form::text("event_schedules[" . ($item['id'] ?? $i) . "][start_date]", $item['start_date'] ?? null,
+                                    {{ Form::text("event_schedules[" . ($item['id'] ?? 1) . "][start_date]", $item['start_date'] ?? null,
                                     ['class' => 'form-control form-control-sm datetimepicker flatpickr-input', 'required' => 'required',
                                     'data-options' => '{&quot;dateFormat&quot;:&quot;Y-m-d&quot;,&quot;enableTime&quot;:false}']) }}
                                     {{--<input class="form-control form-control-sm datetimepicker flatpickr-input"
@@ -83,20 +62,9 @@
                                            data-options="{&quot;dateFormat&quot;:&quot;y-m-d&quot;,&quot;enableTime&quot;:false}"
                                            required name="event_schedules[{{ $i }}][start_date]">--}}
                                 </div>
-                                <div class="col-sm-6 mb-3">
-                                    <label class="form-label" for="schedule-start-time">Время начала</label>
-                                    {{ Form::text("event_schedules[" . ($item['id'] ?? $i) . "][start_time]", $item['start_time'] ?? null,
-                                                                        ['class' => 'form-control form-control-sm datetimepicker flatpickr-input', 'required' => 'required',
-                                                                        'data-options' => '{&quot;enableTime&quot;:true,&quot;noCalendar&quot;:true,&quot;dateFormat&quot;:&quot;H:i&quot;,&quot;time_24hr&quot;:true}']) }}
-
-                                    {{--<input class="form-control form-control-sm datetimepicker flatpickr-input"
-                                           type="text" placeholder="H:i"
-                                           data-options="{&quot;enableTime&quot;:true,&quot;noCalendar&quot;:true,&quot;dateFormat&quot;:&quot;H:i&quot;,&quot;time_24hr&quot;:true}"
-                                           readonly="readonly" name="event_schedules[{{ $i }}][start_time]">--}}
-                                </div>
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <label class="form-label" for="schedule-end-date">Дата окончания</label>
-                                    {{ Form::text("event_schedules[" . ($item['id'] ?? $i) . "][end_date]", $item['end_date'] ?? null,
+                                    {{ Form::text("event_schedules[" . ($item['id'] ?? 1) . "][end_date]", $item['end_date'] ?? null,
                                     ['class' => 'form-control form-control-sm datetimepicker flatpickr-input', 'required' => 'required',
                                     'data-options' => '{&quot;dateFormat&quot;:&quot;Y-m-d&quot;,&quot;enableTime&quot;:false}']) }}
                                     {{--<input class="form-control form-control-sm datetimepicker flatpickr-input"
@@ -104,24 +72,9 @@
                                            data-options="{&quot;dateFormat&quot;:&quot;Y-m-d&quot;,&quot;enableTime&quot;:false}"
                                            readonly="readonly" name="event_schedules[{{ $i }}][end_date]">--}}
                                 </div>
-                                <div class="col-sm-6">
-                                    <label class="form-label" for="schedule-end-time">Время окончания</label>
-                                    {{ Form::text("event_schedules[" . ($item['id'] ?? $i) . "][end_time]", $item['end_time'] ?? null,
-                                    ['class' => 'form-control form-control-sm datetimepicker flatpickr-input', 'required' => 'required',
-                                    'data-options' => '{&quot;enableTime&quot;:true,&quot;noCalendar&quot;:true,&quot;dateFormat&quot;:&quot;H:i&quot;,&quot;time_24hr&quot;:true}']) }}
-                                    {{--<input class="form-control form-control-sm datetimepicker flatpickr-input"
-                                           type="text" placeholder="H:i"
-                                           data-options="{&quot;enableTime&quot;:true,&quot;noCalendar&quot;:true,&quot;dateFormat&quot;:&quot;H:i&quot;,&quot;time_24hr&quot;:true}"
-                                           readonly="readonly" name="event_schedules[{{ $i }}][end_time]">--}}
-                                </div>
                             </div>
                         </div>
-                    @endfor
                 </div>
-                <button class="btn btn-falcon-default btn-sm mt-2" type="button" id="add_event_schedule">
-                    <span class="fas fa-plus fs--2 me-1" data-fa-transform="up-1"></span>
-                    Добавить расписание
-                </button>
             </div>
         </div>
 

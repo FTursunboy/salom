@@ -147,12 +147,7 @@
             <div style="padding: 0 18px">
                 <div class="event-item">
                     <i style="font-size: 18px; margin-left: 1px" class="fas fa-map-marker-alt"></i>
-                    <span class="event-text">г. Душанбе, {{$event?->popularPlace?->name}}</span>
-                </div>
-                <div class="event-item">
-                    <i style="font-size: 18px " class="far fa-clock"></i>
-                    <span class="event-text">{{ $event->schedules->first()->start_time->format('H:i') }}</span>
-
+                    <span class="event-text">г. Душанбе, {{$event?->address}}</span>
                 </div>
                 <div class="event-item">
                     <i style="font-size: 18px; margin-left: 3px" class="fas fa-dollar-sign"></i>

@@ -10,11 +10,8 @@ return new class extends Migration {
         Schema::create('event_schedules', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('event_id')->constrained();
-            $table->string('title');
             $table->date('start_date');
-            $table->time('start_time');
             $table->date('end_date');
-            $table->time('end_time');
             $table->timestamps();
         });
     }
