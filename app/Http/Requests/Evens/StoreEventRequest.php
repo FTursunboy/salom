@@ -29,8 +29,9 @@ class StoreEventRequest extends FormRequest
             'event_schedules.*.end_time' => ['string', 'required'],
             'phones' => ['array'],
             'sites' => ['array'],
-            'popular_place_id' => ['required'],
             'organizer' => ['string', 'nullable'],
+            'address' => ['string', 'nullable'],
+
         ];
     }
 

@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->integer('ticket_amount')->nullable();
             $table->integer('ticket_count')->nullable();
             $table->integer('registered_users')->default(0);
-            $table->string('address');
+            $table->string('address')->nullable();
             $table->integer('view_count')->default(0);
             $table->enum('event_type', ['free', 'paid'])->default('free');
             $table->boolean('show_ticket_count')->nullable()->default(false);

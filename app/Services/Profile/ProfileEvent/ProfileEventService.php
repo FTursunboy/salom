@@ -26,7 +26,6 @@ class ProfileEventService implements ProfileEventContract
     {
 
         $data = array_merge($data, [
-            'address' => 'RUMON',
             'show_ticket_count' => ($data['show_ticket_count'] ?? null == 'on')
         ]);
 
