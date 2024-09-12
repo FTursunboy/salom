@@ -100,7 +100,13 @@ class User extends BaseAuthenticatable
         'birth_date',
         'gender',
         'description',
-        'telegram'
+        'telegram',
+        'telegram_id',
+        'telegram_username',
+        'phone_verified_at',
+        'sms_code',
+        'sms_code_sent_at',
+        'is_verified'
     ];
 
     use HasApiTokens, HasFactory, Notifiable;
