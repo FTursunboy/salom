@@ -72,4 +72,4 @@ Route::get('telegram/redirect', function () {
     return Socialite::driver('telegram')->redirect();
 });
 
-Route::get('telegram/callback', [\App\Http\Controllers\Auth\TelegramLoginController::class, 'callback']);
+Route::get('telegram/callback', [\App\Http\Controllers\Auth\TelegramLoginController::class, 'login']);
