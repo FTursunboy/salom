@@ -35,4 +35,10 @@ return [
         'token' => env('TELEGRAM_BOT_TOKEN', 'YOUR BOT TOKEN HERE')
     ],
 
+    'telegram' => [
+        'bot' => 'anons_help_bot',
+        'client_id' => null,
+        'client_secret' => '7489785555:AAHoDl3RaAoZXSpqVkskHCD83wLYboPyhDU',
+        'redirect' => 'https://dev.anons.tj/telegram/callback'
+    ]
 ];
