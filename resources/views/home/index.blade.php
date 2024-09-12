@@ -80,7 +80,7 @@
                 <div class="row">
                     @foreach($eventCategory->custom_events as $event)
 
-                        <div class="col-12">
+                        <div id="img" class="col-4">
                             <a class="d-block w-100"
                                href="{{ route('events.show', $event)  }}">
                                 <img style="border-radius: 15px; margin-top: -10px; height: 230px"
@@ -127,6 +127,26 @@
 
 @section('scripts')
     <script>
+        function updateColumnClass() {
+            const imgDiv = document.getElementById('img');
+            const windowWidth = window.innerWidth;
+
+            if (windowWidth >= 992) {
+                if (imgDiv.classList.contains('col-12')) {
+                    imgDiv.classList.remove('col-12');
+                    imgDiv.classList.add('col-4');
+                }
+            } else {
+                if (imgDiv.classList.contains('col-4')) {
+                    imgDiv.classList.remove('col-4');
+                    imgDiv.classList.add('col-12');
+                }
+            }
+        }
+
+        // Вызываем функцию при загрузке страницы и при изменении размера окна
+        window.addEventListener('load', updateColumnClass);
+        window.addEventListener('resize', updateColumnClass);
         $('.focus-cat-list .next').click(function () {
             var pos = $('.focus-cat-list .wrapper').scrollLeft() + 330;
 

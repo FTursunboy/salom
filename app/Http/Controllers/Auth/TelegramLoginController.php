@@ -22,7 +22,6 @@ class TelegramLoginController extends Controller
             'telegram_id' => $user->getId(),
              'first_name' => $user->getName(),
              'user_type_id' => '267777f0-4304-11ee-9288-00ff535e960d',
-             'email' => $user->getEmail() ?? $user->getNickname() . '@telegram.com',
              'telegram_username' => $user->getNickname(),
          ]);
 

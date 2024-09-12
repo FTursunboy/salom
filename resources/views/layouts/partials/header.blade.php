@@ -2,7 +2,7 @@
     <div class="container" style="border-bottom: 1px solid grey; height: 65px">
         <nav class="navbar bg-white navbar-expand-lg navbar-light">
             <a class="navbar-brand me-1 me-sm-3" href="{{ route('home') }}">
-                <img style="margin-top: 10px" height="35px" width="130px" src="{{asset('anons.png')}}" alt="Anons Logo">
+                <img style="margin-top: 10px" height="28px" width="130px" src="{{asset('anons.png')}}" alt="Anons Logo">
             </a>
             <a class="navbar-toggler" type="button"  href="{{ route('profile.events.create') }}"   aria-label="Toggle navigation">
                 <span class="custom-toggler-icon"></span>
