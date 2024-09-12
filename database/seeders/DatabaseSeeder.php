@@ -34,8 +34,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::create([
-           'first_name' => 'fd',
-           'user_type_id' => '267777f0-4304-11ee-9288-00ff535e960d',
+            'first_name' => 'fd',
+            'user_type_id' => '267777f0-4304-11ee-9288-00ff535e960d',
             'last_name' => 'dfsa',
             'telegram' => 'fd',
             'phone' => '99292771891',

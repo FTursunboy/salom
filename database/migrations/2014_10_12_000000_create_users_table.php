@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('telegram_username')->nullable();
             $table->foreignUuid('user_type_id')->constrained();
             $table->string('first_name');
-            $table->string('last_name');
+            $table->string('last_name')->nullable();
             $table->string('telegram')->unique()->nullable();
             $table->string('middle_name')->nullable();
             $table->string('email')->unique()->nullable();
