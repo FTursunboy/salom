@@ -73,5 +73,6 @@ Route::get('telegram/redirect', function () {
 });
 
 Route::get('telegram/callback', function () {
-    return "123";
+    $user = Socialite::driver('telegram')->user();
+    dd($user);
 });
