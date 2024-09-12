@@ -147,7 +147,7 @@
             <div style="padding: 0 18px">
                 <div class="event-item">
                     <i style="font-size: 18px; margin-left: 1px" class="fas fa-map-marker-alt"></i>
-                    <span class="event-text">г. Душанбе, {{$event?->address}}</span>
+                    <span class="event-text">{{$event?->address}}</span>
                 </div>
                 <div class="event-item">
                     <i style="font-size: 18px; margin-left: 3px" class="fas fa-dollar-sign"></i>
@@ -159,7 +159,6 @@
                         <a href="{{ $site }}" class="event-text">{{ $site }}</a><br>
                     @endforeach
                 </div>
-
             </div>
         </div>
 
@@ -215,10 +214,12 @@
         </div>
         <!-- Call Button -->
         <!-- Call Button -->
-        <div style="margin-top: 20px;" class="card d-flex justify-content-center align-items-center card-stop">
-            <div class="event-header1 call-button-container1" style="width: 90%; margin-top: 10px; display: flex; justify-content: center; align-items: center; ">
+        <div class="card-stop">
+        <div style="margin-top: 20px;" class="card d-flex justify-content-center align-items-center  event-header1 ">
+            <div class="call-button-container1" style="width: 90%; margin-top: 10px; display: flex; justify-content: center; align-items: center; ">
                 Позвонить
             </div>
+        </div>
         </div>
         <div class="stop">
 
