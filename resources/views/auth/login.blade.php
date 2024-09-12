@@ -43,9 +43,7 @@
                 </button>
             </div>
             <div class="mb-3">
-                <button class="btn btn-primary d-block w-100 mt-3" type="submit" name="submit">
-                    Войти через Telegram
-                </button>
+                <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="anons_help_bot" data-size="large" data-auth-url="https://dev.anons.tj/telegram/callback" data-request-access="write"></script>
             </div>
         </form>
     </div>

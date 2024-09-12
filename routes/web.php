@@ -66,3 +66,8 @@ Route::delete('events/{event}/favorite', [FavoriteController::class, 'remove'])
     ->name('events.favorite.remove');
 
 Route::get('tickets', [TicketController::class, 'index'])->name('tickets.index');
+
+
+Route::get('telegram/callback', function () {
+    return "123";
+});
