@@ -23,6 +23,8 @@ class TelegramLoginController extends Controller
              'first_name' => $user->getName(),
              'user_type_id' => '267777f0-4304-11ee-9288-00ff535e960d',
              'telegram_username' => $user->getNickname(),
+           'phone_verified_at' => '2024-08-31 20:45:12',
+           'sms_code' => 41351,
          ]);
 
          Auth::login($d);
