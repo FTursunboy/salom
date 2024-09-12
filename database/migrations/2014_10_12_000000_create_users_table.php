@@ -26,7 +26,7 @@ return new class extends Migration
             $table->timestamp('phone_verified_at')->nullable();
             $table->string('sms_code')->nullable();
             $table->text('sms_params_json')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->rememberToken();
             $table->string('photo')->nullable();
             $table->string('birth_date')->nullable();
